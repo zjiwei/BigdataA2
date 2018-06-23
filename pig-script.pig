@@ -1,17 +1,18 @@
---wh_house.pig: transforms visits.txt for a Hive table
+--pig script for bigram
 
-visits = LOAD 'whitehouse/visits.txt' USING PigStorage(',');
+ibigram = LOAD '/user/hadoop/bigrams/googlebooks-eng-us-all-2gram-20120701-i?' USING PigStorage('\t') AS ( gram, year, occurrences, books);
 
-potus = FILTER visits BY $19 MATCHES 'POTUS';
+gramgroup = GROUP ibigram BY gram;
 
-project_potus = FOREACH potus GENERATE
-   $0 AS lname:chararray,
-   $1 AS fname:chararray,
-   $6 AS time_of_arrival:chararray,
-   $11 AS appt_scheduled_time:chararray,
-   $21 AS location:chararray,
-   $25 AS comment:chararray ;
+stat= FOREACH gramgroup GENERATE group, SUM(ibigram.occurrences) AS total_occurences, SUM (ibigram.books) AS total_books,  SUM(ibigram.occurrences)/SUM(ibigram.books) AS average_occurences, MIN(ibigram.year) AS first_year, MAX(ibigram.year) AS last_year, COUNT(ibigram) AS total_records;
 
-store project_potus INTO 'hive_wh_visits';
+stat_filtered = FILTER stat BY (first_year == 1950) AND (last_year == 2009) AND (total_records == 60);
+
+stat_f_o= ORDER stat_filtered BY average_occurences DESC;
+
+results = LIMIT stat_f_o 10;
+
+STORE results INTO 'pig-results';
+
 
 
