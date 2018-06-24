@@ -1,6 +1,6 @@
 --pig script for bigram
 
-ibigram = LOAD '/user/hadoop/bigrams/googlebooks-eng-us-all-2gram-20120701-i?' USING PigStorage('\t') AS ( gram, year, occurrences, books);
+ibigram = LOAD '/user/hadoop/bigrams/googlebooks-eng-us-all-2gram-20120701-i?' USING PigStorage('\t') AS ( gram:chararray, year:int, occurrences:float, books:float);
 
 gramgroup = GROUP ibigram BY gram;
 
