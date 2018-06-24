@@ -12,7 +12,9 @@ stat_f_o= ORDER stat_filtered BY average_occurences DESC;
 
 results = LIMIT stat_f_o 10;
 
-STORE results INTO 'pig-results' USING PigStorage(',','-schema');
+STORE results INTO 'pig-results' USING PigStorage(',');
+
+fs -getmerge pig-results/part-* ~/BigdataA2/pig-results.csv 
 
 
 
