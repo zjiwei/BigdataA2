@@ -3,8 +3,8 @@
   "systemActions": [],
   "startupScripts": [],
   "hadoopEnv": {},
-  "jobFlowId": "j-1UUWJ7WYHEKA8",
-  "jobFlowCreationInstant": 1529843587599,
+  "jobFlowId": "j-2HHFG2S9EKGIW",
+  "jobFlowCreationInstant": 1529869925047,
   "instanceCount": 5,
   "masterInstanceType": "m4.large",
   "instanceGroups": {
@@ -29,7 +29,7 @@
   "runDataNode": false,
   "runResourceManager": true,
   "runNodeManager": false,
-  "instanceGroupId": "ig-1D26HC78DA863",
+  "instanceGroupId": "ig-2OPLH46PVICHF",
   "instanceRole": "master",
   "marketType": "on_demand",
   "instanceGroupInstanceType": "m4.large",
@@ -41,7 +41,7 @@
   "debuggingInfo": {
     "sdbDisabled": false,
     "sqsEnabled": true,
-    "sqsQueueName": "AWS-ElasticMapReduce-j-1UUWJ7WYHEKA8",
+    "sqsQueueName": "AWS-ElasticMapReduce-j-2HHFG2S9EKGIW",
     "stepFailureAnalysisEnabled": true,
     "emrLogAnalyticsEnabled": true,
     "frequencyOfUpload": 120
