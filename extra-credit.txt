@@ -1,0 +1,2 @@
+1: I find that though some bigrams are different, they have almost the same occurrences and books. For example, the bigram “intertrial _NOUN_” and another one “intertrial_ADJ _NOUN_”. Maybe they are the same bigram.
+2: After creating the aggregated dataset, we can use Pig or Hive to extract data and perform different analytics, based on the aggregated dataset. And we just need to differentiate our script based on requirement of analytics and our dataset.
